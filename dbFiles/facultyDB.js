@@ -24,7 +24,7 @@ async function getFaculty(facultyId) {
   }
 }
 
-async function deleteFaculty(facultyId) {
+async function removeFaculty(facultyId) {
     try {
       let pool = await sql.connect(config);
       let faculty = await pool
@@ -63,7 +63,7 @@ async function editFaculty(faculty) {
         .input("uniqueId", sql.Int, faculty.UniqueID)
         .input("code", sql.NVarChar, faculty.Code)
         .input("status", sql.Int, faculty.Status)
-        .execute("Update Faculty");
+        .execute("UpdateFaculty");
       return updateFaculty.recordsets;
     } catch (err) {
       console.log(err);
@@ -73,7 +73,7 @@ async function editFaculty(faculty) {
 module.exports = {
   getFaculties: getFaculties,
   getFaculty: getFaculty,
-  deleteFaculty: deleteFaculty,
+  removeFaculty: removeFaculty,
   addFaculty: addFaculty,
   editFaculty: editFaculty
 };
