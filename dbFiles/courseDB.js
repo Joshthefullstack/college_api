@@ -24,7 +24,7 @@ async function getCourse(courseId) {
   }
 }
 
-async function deleteCourse(courseId) {
+async function removeCourse(courseId) {
     try {
       let pool = await sql.connect(config);
       let course = await pool
@@ -83,7 +83,7 @@ async function editCourse(course) {
 module.exports = {
     getCourses: getCourses,
     getCourse: getCourse,
-    deleteCourse: deleteCourse,
+    removeCourse: removeCourse,
     addCourse: addCourse,
     editCourse: editCourse
 };
