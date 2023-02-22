@@ -101,33 +101,33 @@ router.route("/departments/:id").delete((request, response) => {
 });
 
 //========================COURSE OF STUDY
-router.route("/courseofstudy").get((request, response) => {
+router.route("/courseofstudies").get((request, response) => {
   courseStudyDb.getCourseOfStudies().then((data) => {
     response.json(data[0]);
   });
 });
 
-router.route("/courseofstudy/:id").get((request, response) => {
+router.route("/courseofstudies/:id").get((request, response) => {
   courseStudyDb.getCourseOfStudy(request.params.id).then((data) => {
     response.json(data[0]);
   });
 });
 
-router.route("/courseofstudy").post((request, response) => {
+router.route("/courseofstudies").post((request, response) => {
   let courseofstudy = { ...request.body };
   courseStudyDb.addCourseOfStudy(courseofstudy).then((data) => {
     response.status(201).json(data);
   });
 });
 
-router.route("/courseofstudy").put((request, response) => {
+router.route("/courseofstudies").put((request, response) => {
   let courseofstudy = { ...request.body };
   courseStudyDb.editCourseOfStudy(courseofstudy).then((data) => {
     response.status(200).json(data);
   });
 });
 
-router.route("/courseofstudy/:id").delete((request, response) => {
+router.route("/courseofstudies/:id").delete((request, response) => {
   courseStudyDb.removeCourseOfStudy(request.params.id).then((data) => {
     response.json(data[0]);
   });
@@ -202,5 +202,3 @@ router.route("/lecturer/:id").delete((request, response) => {
 var port = process.env.PORT || 8091;
 app.listen(port);
 console.log("Academics API is runnning at " + port);
-
-// COME AND PUSH YOUR CODE TO GITHUB AND SUBMIT
